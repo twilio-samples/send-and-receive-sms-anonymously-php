@@ -1,0 +1,29 @@
+{
+    "name": "settermjd/masked-number-php",
+    "description": "Use a Twilio phone number to relay SMS messages to and from your phone; since the other party only sees your Twilio number, this effectively allows you to mask your phone number for privacy purposes.",
+    "version": "0.0.1",
+    "type": "project",
+    "license": "MIT",
+    "keywords": [
+        "Slim",
+        "Twilio",
+        "Masked phone number"
+    ],
+    "config": {
+        "sort-packages": true
+    },
+    "require": {
+        "slim/slim": "^4.14",
+        "slim/psr7": "^1.7",
+        "twilio/sdk": "^8.2",
+        "monolog/monolog": "^3.7",
+        "php-di/slim-bridge": "^3.4",
+        "vlucas/phpdotenv": "^5.6"
+    },
+    "scripts": {
+        "serve": [
+            "Composer\\Config::disableProcessTimeout",
+            "php -S 0.0.0.0:8080 -t public/"
+        ]
+    }
+}

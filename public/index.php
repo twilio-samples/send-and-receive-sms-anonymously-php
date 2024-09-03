@@ -42,7 +42,7 @@ $app->post('/', function (ServerRequestInterface $request, ResponseInterface $re
                 'to' => $matches['recipient'],
             ]);
         } else {
-            $twiml->message("To reply to someone, you need to specify the recipient's phone number in E.164 format followed by a colon (':') and a space before the message, e.g.,: \"+16501231234: Here is my message to you.\".");
+            $twiml->message("To reply to someone, you need to specify the recipient's phone number in E.164 format followed by a colon (':') and a space before the message, e.g.,: \"+16501231234: Here is my message to you.\".", ['to' => $_ENV['MY_PHONE_NUMBER']]);
         }
         $response = $response->withHeader('Content-Type', 'application/xml');
         $response->getBody()->write($twiml->asXML());

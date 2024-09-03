@@ -21,12 +21,13 @@ $dotenv
  * colon (':') and a space, followed by any amount of text, e.g.,:
  * "+16501231234: Here is my message to you.".
  */
-const REGEX_MESSAGE_WITH_RECIPIENT = "/^(?<recipient>\+[1-9]\d{1,14}(?=.)): (?<message>.*)/";
+const REGEX_MESSAGE_WITH_RECIPIENT = "/^(?<recipient>\+[1-9]\d{1,14}(?=:)): (?<message>.*)/";
 
 $container = new Container();
 
 AppFactory::setContainer($container);
 $app = AppFactory::create();
+
 
 $app->post('/', function (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
     $twiml = new MessagingResponse();

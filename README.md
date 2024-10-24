@@ -1,6 +1,7 @@
 # Send and Receive SMS Anonymously with PHP and Twilio
 
-This privacy-conscious app uses a Twilio phone number to relay SMS messages to and from your phone, masking your phone number from the public. For more details, see [Twilio's blog post about SMS forwarding][twilio_sms_forwarding_url].
+This privacy-conscious app uses a Twilio phone number to relay SMS messages to and from your phone, masking your phone number from the public.
+For more details, see [Twilio's blog post about SMS forwarding][twilio_sms_forwarding_url].
 
 ## Prerequisites/Requirements
 
@@ -39,4 +40,4 @@ ngrok http 8080
 [ngrok_url]: https://ngrok.com/
 [try_twilio_url]: https://www.twilio.com/try-twilio
 [twilio_sms_forwarding_url]: https://www.twilio.com/blog/sms-forwarding-and-responding-using-twilio-and-javascript
-[twilio_e164_format_url]: https://www.twilio.com/docs/glossary/what-e164 
+[twilio_e164_format_url]: https://www.twilio.com/docs/glossary/what-e164

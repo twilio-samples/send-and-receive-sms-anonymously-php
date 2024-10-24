@@ -6,25 +6,60 @@
     "license": "MIT",
     "keywords": [
         "Slim",
+        "PHP",
         "Twilio",
+        "CodeExchange",
         "Masked phone number"
     ],
     "config": {
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
     },
     "require": {
         "php": "~8.3.0",
-        "slim/slim": "^4.14",
-        "slim/psr7": "^1.7",
-        "twilio/sdk": "^8.2",
         "monolog/monolog": "^3.7",
         "php-di/slim-bridge": "^3.4",
+        "slim/psr7": "^1.7",
+        "slim/slim": "^4.14",
+        "twilio/sdk": "^8.2",
         "vlucas/phpdotenv": "^5.6"
     },
+    "require-dev": {
+        "laminas/laminas-coding-standard": "^3.0",
+        "phpunit/phpunit": "^10.5",
+        "psalm/plugin-phpunit": "^0.19.0",
+        "roave/security-advisories": "dev-latest",
+        "squizlabs/php_codesniffer": "^3.10",
+        "vimeo/psalm": "^5.26"
+    },
+    "autoload": {
+        "psr-4": {
+            "MaskedNumber\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "MaskedNumberTest\\": "test/"
+        }
+    },
     "scripts": {
+        "check": [
+            "@cs-check",
+            "@static-analysis",
+            "@test"
+        ],
+        "cs-check": "phpcs",
+        "cs-fix": "phpcbf",
+        "docs-check": "markdownlint --config .markdownlint.yaml README.md",
+        "docs-fix": "markdownlint --fix --config .markdownlint.yaml README.md",
         "serve": [
             "Composer\\Config::disableProcessTimeout",
             "php -S 0.0.0.0:8080 -t public/"
-        ]
+        ],
+        "static-analysis": "psalm --shepherd --stats",
+        "test": "phpunit --colors=always",
+        "test-coverage": "XDEBUG_MODE=coverage phpunit --colors=always --coverage-clover clover.xml"
     }
 }
